@@ -384,12 +384,29 @@ def main() -> int:
             e.pdf_url = find_pdf_url(e)
         merged[e.id] = e
 
+    # 通知経路の疎通確認用。TEST_NOTIFY=1 で新着の有無に関係なくダミーを送る
+    if os.environ.get("TEST_NOTIFY", "").strip() in {"1", "true", "yes"}:
+        dummy = Entry(id="test", date="2026.01.01", category="テスト",
+                      title="通知テストです（実際の運行情報ではありません）",
+                      url="https://www.shinkibus.co.jp/sys/frames/lists01")
+        results = [notify_discord("【神姫バス】通知テスト", [dummy]),
+                   notify_email("【神姫バス】通知テスト", [dummy])]
+        if not any(r is not None for r in results):
+            log("!! 通知先が1つも設定されていません")
+            return 3
+        return 0 if all(r is not False for r in results) else 3
+
     if targets:
         subject = f"【神姫バス】新着 {len(targets)} 件: {targets[0].title[:40]}"
-        notify_discord(subject, targets)
-        notify_email(subject, targets)
+        results = [notify_discord(subject, targets), notify_email(subject, targets)]
         for line in format_lines(targets):
             print(line)
+        if not any(r is not None for r in results):
+            log("!! 新着があるのに通知先が1つも設定されていません")
+            return 3
+        if any(r is False for r in results):
+            log("!! 通知の送信に失敗しました")
+            return 3
 
     FEED_PATH.write_text(build_feed(list(merged.values())), encoding="utf-8")
     save_state({"entries": {k: asdict(v) for k, v in merged.items()}})
