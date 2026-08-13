@@ -2,9 +2,9 @@ name: shinkibus-watch
 
 on:
   schedule:
-    # 21:30 UTC = 06:30 JST（出勤前に届く時刻）
+    # 21:37 UTC = 06:37 JST（出勤前に届く時刻）
     # GitHub の cron は数分〜十数分遅延することがあるので余裕をみている
-    - cron: "30 21 * * *"
+    - cron: "37 21 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -18,17 +18,17 @@ jobs:
   watch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
       - name: Check 神姫バス news
         env:
-          # Discord に飛ばす場合のみ設定（未設定ならスキップされる）
+          # Discord に飛ばす場合のみ設定（未設定ならログにスキップと出る）
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          # メールで受け取る場合のみ設定（未設定ならスキップされる）
+          # メールで受け取る場合のみ設定（未設定ならログにスキップと出る）
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
           SMTP_USER: ${{ secrets.SMTP_USER }}
@@ -37,22 +37,23 @@ jobs:
           MAIL_FROM: ${{ secrets.MAIL_FROM }}
           # 例: https://<user>.github.io/shinkibus-watch/feed.xml
           FEED_SELF_URL: ${{ vars.FEED_SELF_URL }}
-          # 通知するキーワード（カンマ区切り）。未設定なら watch.py のデフォルト
+          # 既定は絞り込みなし（全件通知）。多すぎる場合だけカンマ区切りで指定する
           KEYWORDS: ${{ vars.KEYWORDS }}
-          # 1 にするとキーワードで絞らず全件通知
-          NOTIFY_ALL: ${{ vars.NOTIFY_ALL }}
+          # 1 にすると新着の有無に関係なくダミー通知を1件送って終了する
+          TEST_NOTIFY: ${{ vars.TEST_NOTIFY }}
         run: python watch.py
 
       - name: Commit state and feed
+        # 通知に失敗しても state/feed の保存はしたいので always()
+        if: always() && steps.check.conclusion != 'skipped'
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state.json feed.xml
+          git add -- state.json feed.xml || true
           if git diff --cached --quiet; then
             echo "変更なし"
           else
             git commit -m "chore: update state and feed [skip ci]"
-            # 手動実行と重なった場合に備えてリベースしてから push
             git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
             git push
           fi
