@@ -32,8 +32,10 @@ TARGET_URLS = [
     f"{BASE}/sys/frames/lists01",
 ]
 
-# タイトルにこのいずれかを含む記事だけ通知する（NOTIFY_ALL=1 で無効化）。
-DEFAULT_KEYWORDS = [
+# 既定ではフィルタしない（lists01 は路線バスのみなので元々ノイズが少ない）。
+# 通知が多すぎる場合だけ、環境変数 KEYWORDS にカンマ区切りで指定して絞り込む。
+# 参考値: ダイヤ,運休,運行,臨時,迂回,経路変更,減便,増便,時刻,休止,廃止,路線
+SUGGESTED_KEYWORDS = [
     "ダイヤ",
     "運休",
     "運行",
@@ -210,10 +212,12 @@ def format_lines(entries: list[Entry]) -> list[str]:
     return lines
 
 
-def notify_discord(subject: str, entries: list[Entry]) -> None:
+def notify_discord(subject: str, entries: list[Entry]) -> bool | None:
+    """True=送信成功 / False=送信失敗 / None=未設定でスキップ"""
     webhook = os.environ.get("DISCORD_WEBHOOK_URL", "").strip()
     if not webhook:
-        return
+        log("Discord: DISCORD_WEBHOOK_URL が未設定のためスキップ")
+        return None
     body = "\n".join([f"**{subject}**", ""] + format_lines(entries))
     # Discord の上限は 2000 文字
     if len(body) > 1900:
@@ -227,23 +231,29 @@ def notify_discord(subject: str, entries: list[Entry]) -> None:
     try:
         with urllib.request.urlopen(req, timeout=20) as res:
             log(f"Discord 通知 OK (HTTP {res.status})")
+        return True
     except urllib.error.HTTPError as exc:
         log(f"Discord 通知失敗: HTTP {exc.code} {exc.read()[:200]!r}")
     except Exception as exc:  # noqa: BLE001
         log(f"Discord 通知失敗: {exc}")
+    return False
 
 
-def notify_email(subject: str, entries: list[Entry]) -> None:
+def notify_email(subject: str, entries: list[Entry]) -> bool | None:
+    """True=送信成功 / False=送信失敗 / None=未設定でスキップ"""
     host = os.environ.get("SMTP_HOST", "").strip()
     mail_to = os.environ.get("MAIL_TO", "").strip()
     if not host or not mail_to:
-        log(f"メール: 未設定のためスキップ (SMTP_HOST={'有' if host else '無'}, "
-            f"MAIL_TO={'有' if mail_to else '無'})")
+        log(
+            "メール: 未設定のためスキップ "
+            f"(SMTP_HOST={'設定あり' if host else '空'}, "
+            f"MAIL_TO={'設定あり' if mail_to else '空'})"
+        )
         return None
-    port = int(os.environ.get("SMTP_PORT", "465"))
-    user = os.environ.get("SMTP_USER", "")
-    password = os.environ.get("SMTP_PASS", "")
-    mail_from = os.environ.get("MAIL_FROM", user or mail_to)
+    port = int(os.environ.get("SMTP_PORT", "465").strip() or "465")
+    user = os.environ.get("SMTP_USER", "").strip()
+    password = os.environ.get("SMTP_PASS", "").strip()
+    mail_from = os.environ.get("MAIL_FROM", "").strip() or user or mail_to
 
     msg = EmailMessage()
     msg["Subject"] = subject
@@ -251,6 +261,7 @@ def notify_email(subject: str, entries: list[Entry]) -> None:
     msg["To"] = mail_to
     msg.set_content("\n".join(format_lines(entries)))
 
+    log(f"メール送信中: {host}:{port} from={mail_from} to={mail_to}")
     try:
         if port == 587:
             with smtplib.SMTP(host, port, timeout=30) as smtp:
@@ -264,8 +275,25 @@ def notify_email(subject: str, entries: list[Entry]) -> None:
                     smtp.login(user, password)
                 smtp.send_message(msg)
         log(f"メール通知 OK -> {mail_to}")
+        return True
+    except smtplib.SMTPAuthenticationError as exc:
+        log(f"メール通知失敗（認証エラー）: {exc}")
+        log("  → Gmail の場合、通常のパスワードではなくアプリパスワードが必要です")
     except Exception as exc:  # noqa: BLE001
-        log(f"メール通知失敗: {exc}")
+        log(f"メール通知失敗: {type(exc).__name__}: {exc}")
+    return False
+
+
+def dispatch(subject: str, entries: list[Entry]) -> int:
+    """通知を送り、終了コードを返す。設定漏れ・送信失敗はジョブを失敗させる。"""
+    results = [notify_discord(subject, entries), notify_email(subject, entries)]
+    if all(r is None for r in results):
+        log("!! 通知先が1つも設定されていません（Secrets を確認してください）")
+        return 3
+    if any(r is False for r in results):
+        log("!! 通知の送信に失敗しました")
+        return 3
+    return 0
 
 
 # --------------------------------------------------------------------------
@@ -326,12 +354,25 @@ def build_feed(entries: list[Entry]) -> str:
 
 
 def main() -> int:
-    keywords = [
-        k.strip()
-        for k in os.environ.get("KEYWORDS", ",".join(DEFAULT_KEYWORDS)).split(",")
-        if k.strip()
-    ]
-    notify_all = os.environ.get("NOTIFY_ALL", "").strip() in {"1", "true", "yes"}
+    keywords = [k.strip() for k in os.environ.get("KEYWORDS", "").split(",") if k.strip()]
+    test_notify = os.environ.get("TEST_NOTIFY", "").strip() in {"1", "true", "yes"}
+
+    # 通知経路の疎通確認。新着の有無に関係なくダミーを1件送って終わる。
+    if test_notify:
+        log("TEST_NOTIFY=1: 通知経路の疎通確認のみ行います")
+        dummy = Entry(
+            id="test",
+            date=datetime.now(JST).strftime("%Y.%m.%d"),
+            category="テスト",
+            title="通知テストです（実際の運行情報ではありません）",
+            url=TARGET_URLS[0],
+        )
+        return dispatch("【神姫バス】通知テスト", [dummy])
+
+    if keywords:
+        log(f"キーワード絞り込み: {keywords}")
+    else:
+        log("キーワード絞り込み: なし（新着はすべて通知します）")
 
     scraped: dict[str, Entry] = {}
     for url in TARGET_URLS:
@@ -353,16 +394,19 @@ def main() -> int:
     now_iso = datetime.now(JST).isoformat()
 
     changed: list[Entry] = []
+    reasons: dict[str, str] = {}
     for entry_id, entry in scraped.items():
         prev = known.get(entry_id)
         if prev is None:
             entry.first_seen = now_iso
+            reasons[entry_id] = "新規"
             changed.append(entry)
         else:
             entry.first_seen = prev.get("first_seen", now_iso)
             entry.pdf_url = prev.get("pdf_url", "")
             if prev.get("title") != entry.title:
                 # 【8月5日内容更新】のようなタイトル書き換えも拾う
+                reasons[entry_id] = f"更新（旧: {prev.get('title', '')}）"
                 changed.append(entry)
 
     # 既知だがページから消えた記事も、RSS の履歴として残す
@@ -371,47 +415,34 @@ def main() -> int:
         merged[entry_id] = Entry(**{k: data.get(k, "") for k in Entry.__annotations__})
     merged.update(scraped)
 
-    targets = changed if notify_all else [e for e in changed if matches_keywords(e, keywords)]
+    targets = [e for e in changed if not keywords or matches_keywords(e, keywords)]
 
     if first_run:
         log(f"初回実行のため通知はスキップし、{len(scraped)} 件を state に記録します")
         targets = []
     else:
         log(f"新規・更新 {len(changed)} 件 / 通知対象 {len(targets)} 件")
+        target_ids = {e.id for e in targets}
+        for e in changed:
+            mark = "通知" if e.id in target_ids else "除外"
+            log(f"  [{mark}] {e.date} [{e.category}] {e.title}  <{reasons[e.id]}>")
 
     for e in targets:
         if not e.pdf_url:
             e.pdf_url = find_pdf_url(e)
         merged[e.id] = e
 
-    # 通知経路の疎通確認用。TEST_NOTIFY=1 で新着の有無に関係なくダミーを送る
-    if os.environ.get("TEST_NOTIFY", "").strip() in {"1", "true", "yes"}:
-        dummy = Entry(id="test", date="2026.01.01", category="テスト",
-                      title="通知テストです（実際の運行情報ではありません）",
-                      url="https://www.shinkibus.co.jp/sys/frames/lists01")
-        results = [notify_discord("【神姫バス】通知テスト", [dummy]),
-                   notify_email("【神姫バス】通知テスト", [dummy])]
-        if not any(r is not None for r in results):
-            log("!! 通知先が1つも設定されていません")
-            return 3
-        return 0 if all(r is not False for r in results) else 3
-
+    rc = 0
     if targets:
         subject = f"【神姫バス】新着 {len(targets)} 件: {targets[0].title[:40]}"
-        results = [notify_discord(subject, targets), notify_email(subject, targets)]
+        rc = dispatch(subject, targets)
         for line in format_lines(targets):
             print(line)
-        if not any(r is not None for r in results):
-            log("!! 新着があるのに通知先が1つも設定されていません")
-            return 3
-        if any(r is False for r in results):
-            log("!! 通知の送信に失敗しました")
-            return 3
 
     FEED_PATH.write_text(build_feed(list(merged.values())), encoding="utf-8")
     save_state({"entries": {k: asdict(v) for k, v in merged.items()}})
     log(f"完了: {FEED_PATH} / {STATE_PATH} を更新しました")
-    return 0
+    return rc
 
 
 if __name__ == "__main__":
