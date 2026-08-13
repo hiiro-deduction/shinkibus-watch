@@ -237,7 +237,9 @@ def notify_email(subject: str, entries: list[Entry]) -> None:
     host = os.environ.get("SMTP_HOST", "").strip()
     mail_to = os.environ.get("MAIL_TO", "").strip()
     if not host or not mail_to:
-        return
+        log(f"メール: 未設定のためスキップ (SMTP_HOST={'有' if host else '無'}, "
+            f"MAIL_TO={'有' if mail_to else '無'})")
+        return None
     port = int(os.environ.get("SMTP_PORT", "465"))
     user = os.environ.get("SMTP_USER", "")
     password = os.environ.get("SMTP_PASS", "")
