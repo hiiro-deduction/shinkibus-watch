@@ -27,6 +27,24 @@
       "title": "大好評✨神姫バス×山陽電車のリアル謎解きゲーム 『姫路なぞ解きクロスロード』を限定開催中‼",
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2451"
     },
+    "2485": {
+      "category": "路線バス",
+      "date": "2026.06.15",
+      "first_seen": "2026-08-19T06:53:35.514129+09:00",
+      "id": "2485",
+      "pdf_url": "https://www.shinkibus.co.jp/sys/whatsnew/download/2485",
+      "title": "【西神中央駅前案内所】 7/1(水)より営業時間変更のお知らせ",
+      "url": "https://www.shinkibus.co.jp/sys/frames/view/2485"
+    },
+    "2523": {
+      "category": "路線バス",
+      "date": "2026.06.26",
+      "first_seen": "2026-08-19T06:53:35.514129+09:00",
+      "id": "2523",
+      "pdf_url": "",
+      "title": "女性優先座席の見直しについて（三田地区）",
+      "url": "https://www.shinkibus.co.jp/sys/frames/view/2523"
+    },
     "2526": {
       "category": "路線バス",
       "date": "2026.07.06",
@@ -109,5 +127,5 @@
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2554"
     }
   },
-  "updated_at": "2026-08-18T06:55:24.929984+09:00"
+  "updated_at": "2026-08-19T06:53:38.940170+09:00"
 }
