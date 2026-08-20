@@ -2,11 +2,11 @@
   "entries": {
     "2226": {
       "category": "路線バス",
-      "date": "2026.08.03",
+      "date": "2026.08.20",
       "first_seen": "2026-08-13T10:43:42.648620+09:00",
       "id": "2226",
-      "pdf_url": "",
-      "title": "【8月5日内容更新・9月18日までの臨時バス情報を追加】🎤ジーライオンアリーナ神戸🏀へのアクセスのご案内",
+      "pdf_url": "https://www.shinkibus.co.jp/sys/whatsnew/download/2226",
+      "title": "【8月22日／29日内容更新・9月26日までの臨時バス情報を追加】🎤ジーライオンアリーナ神戸🏀へのアクセスのご案内",
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2226"
     },
     "2413": {
@@ -127,5 +127,5 @@
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2554"
     }
   },
-  "updated_at": "2026-08-20T06:56:16.300673+09:00"
+  "updated_at": "2026-08-21T06:57:28.912214+09:00"
 }
