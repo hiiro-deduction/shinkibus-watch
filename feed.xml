@@ -5,7 +5,7 @@
     <link>https://www.shinkibus.co.jp/sys/frames/lists01</link>
     <description>神姫バス公式サイトの新着情報を非公式にRSS化したものです。</description>
     <language>ja</language>
-    <lastBuildDate>Fri, 21 Aug 2026 06:57:28 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 06:56:14 +0900</lastBuildDate>
     <item>
       <title>【8月22日／29日内容更新・9月26日までの臨時バス情報を追加】🎤ジーライオンアリーナ神戸🏀へのアクセスのご案内</title>
       <link>https://www.shinkibus.co.jp/sys/frames/view/2226</link>
@@ -117,6 +117,14 @@
       <pubDate>Mon, 15 Jun 2026 09:00:00 +0900</pubDate>
       <category>路線バス</category>
       <description>2026.06.15 / 路線バス / PDF: &lt;a href="https://www.shinkibus.co.jp/sys/whatsnew/download/2485"&gt;https://www.shinkibus.co.jp/sys/whatsnew/download/2485&lt;/a&gt;</description>
+    </item>
+    <item>
+      <title>2026年6月6日（土）ダイヤ改正について</title>
+      <link>https://www.shinkibus.co.jp/sys/frames/view/2510</link>
+      <guid isPermaLink="false">shinkibus-2510</guid>
+      <pubDate>Fri, 29 May 2026 09:00:00 +0900</pubDate>
+      <category>路線バス</category>
+      <description>2026.05.29 / 路線バス / PDF: &lt;a href="https://www.shinkibus.co.jp/sys/whatsnew/download/2510"&gt;https://www.shinkibus.co.jp/sys/whatsnew/download/2510&lt;/a&gt;</description>
     </item>
   </channel>
 </rss>

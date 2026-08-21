@@ -36,6 +36,15 @@
       "title": "【西神中央駅前案内所】 7/1(水)より営業時間変更のお知らせ",
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2485"
     },
+    "2510": {
+      "category": "路線バス",
+      "date": "2026.05.29",
+      "first_seen": "2026-08-22T06:56:12.048302+09:00",
+      "id": "2510",
+      "pdf_url": "https://www.shinkibus.co.jp/sys/whatsnew/download/2510",
+      "title": "2026年6月6日（土）ダイヤ改正について",
+      "url": "https://www.shinkibus.co.jp/sys/frames/view/2510"
+    },
     "2523": {
       "category": "路線バス",
       "date": "2026.06.26",
@@ -127,5 +136,5 @@
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2554"
     }
   },
-  "updated_at": "2026-08-21T06:57:28.912214+09:00"
+  "updated_at": "2026-08-22T06:56:14.090144+09:00"
 }
