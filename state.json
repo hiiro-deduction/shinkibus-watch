@@ -135,6 +135,15 @@
       "title": "【北条営業所（乗車券発売窓口）】 8月臨時休業日のお知らせ",
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2554"
     },
+    "2564": {
+      "category": "路線バス",
+      "date": "2026.09.01",
+      "first_seen": "2026-09-02T08:32:11.423601+09:00",
+      "id": "2564",
+      "pdf_url": "",
+      "title": "神戸市交通局（地下鉄）との連絡定期券発売額改定について",
+      "url": "https://www.shinkibus.co.jp/sys/frames/view/2564"
+    },
     "2565": {
       "category": "路線バス",
       "date": "2026.08.31",
@@ -143,7 +152,16 @@
       "pdf_url": "",
       "title": "2027 年スルッと KANSAI 電車＆バスカレンダーの発売について",
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2565"
+    },
+    "2566": {
+      "category": "路線バス",
+      "date": "2026.09.01",
+      "first_seen": "2026-09-02T08:32:11.423601+09:00",
+      "id": "2566",
+      "pdf_url": "",
+      "title": "涼しいループバスでセカンドサマー🌞を楽しもう！神戸中心部の乗り放題券購入で「キンキンに冷えるかき氷保冷剤」をプレゼント🎁",
+      "url": "https://www.shinkibus.co.jp/sys/frames/view/2566"
     }
   },
-  "updated_at": "2026-09-01T09:45:53.247918+09:00"
+  "updated_at": "2026-09-02T08:32:14.633984+09:00"
 }
