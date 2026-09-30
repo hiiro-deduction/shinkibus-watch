@@ -2,11 +2,11 @@
   "entries": {
     "2226": {
       "category": "路線バス",
-      "date": "2026.09.18",
+      "date": "2026.09.29",
       "first_seen": "2026-08-13T10:43:42.648620+09:00",
       "id": "2226",
       "pdf_url": "https://www.shinkibus.co.jp/sys/whatsnew/download/2226",
-      "title": "【10月26日までの臨時バス情報を追加】🎤ジーライオンアリーナ神戸🏀へのアクセスのご案内",
+      "title": "【11月6日までの臨時バス情報を追加】🎤ジーライオンアリーナ神戸🏀へのアクセスのご案内",
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2226"
     },
     "2413": {
@@ -224,7 +224,16 @@
       "pdf_url": "https://www.shinkibus.co.jp/sys/whatsnew/download/2591",
       "title": "【10月10日～11日】神戸ジャズストリート開催に伴うシティループの運行内容変更について",
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2591"
+    },
+    "2593": {
+      "category": "路線バス",
+      "date": "2026.09.29",
+      "first_seen": "2026-09-30T09:44:39.974033+09:00",
+      "id": "2593",
+      "pdf_url": "",
+      "title": "【北条営業所（乗車券発売窓口）】10月臨時休業日のお知らせ",
+      "url": "https://www.shinkibus.co.jp/sys/frames/view/2593"
     }
   },
-  "updated_at": "2026-09-29T10:13:34.391636+09:00"
+  "updated_at": "2026-09-30T09:44:45.130309+09:00"
 }
