@@ -233,7 +233,16 @@
       "pdf_url": "",
       "title": "【北条営業所（乗車券発売窓口）】10月臨時休業日のお知らせ",
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2593"
+    },
+    "2594": {
+      "category": "路線バス",
+      "date": "2026.09.30",
+      "first_seen": "2026-10-01T09:48:17.477114+09:00",
+      "id": "2594",
+      "pdf_url": "https://www.shinkibus.co.jp/sys/whatsnew/download/2594",
+      "title": "（姫路地区）秋まつりに伴う運行方法の変更について",
+      "url": "https://www.shinkibus.co.jp/sys/frames/view/2594"
     }
   },
-  "updated_at": "2026-09-30T09:44:45.130309+09:00"
+  "updated_at": "2026-10-01T09:48:19.480099+09:00"
 }
