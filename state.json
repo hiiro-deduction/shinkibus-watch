@@ -236,11 +236,11 @@
     },
     "2594": {
       "category": "路線バス",
-      "date": "2026.09.30",
+      "date": "2026.10.13",
       "first_seen": "2026-10-01T09:48:17.477114+09:00",
       "id": "2594",
       "pdf_url": "https://www.shinkibus.co.jp/sys/whatsnew/download/2594",
-      "title": "（姫路地区）秋まつりに伴う運行方法の変更について",
+      "title": "※再掲※（姫路地区）秋まつりに伴う運行方法の変更について",
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2594"
     },
     "2598": {
@@ -260,7 +260,16 @@
       "pdf_url": "",
       "title": "🍁神戸から丹波焼陶器まつり「秋の郷めぐり」へは臨時直行バスでGO🍁",
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2601"
+    },
+    "2604": {
+      "category": "路線バス",
+      "date": "2026.10.13",
+      "first_seen": "2026-10-13T11:41:57.883193+09:00",
+      "id": "2604",
+      "pdf_url": "https://www.shinkibus.co.jp/sys/whatsnew/download/2604",
+      "title": "【10/19～23】みなと花火開催に伴うポートループ・シティループの運休・行先変更について",
+      "url": "https://www.shinkibus.co.jp/sys/frames/view/2604"
     }
   },
-  "updated_at": "2026-10-12T09:42:49.938037+09:00"
+  "updated_at": "2026-10-13T11:42:01.490318+09:00"
 }
