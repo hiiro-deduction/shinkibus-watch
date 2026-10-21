@@ -305,7 +305,16 @@
       "pdf_url": "",
       "title": "【西神中央駅前案内所】 11月臨時休業のお知らせ",
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2609"
+    },
+    "2610": {
+      "category": "路線バス",
+      "date": "2026.10.20",
+      "first_seen": "2026-10-21T09:06:15.371888+09:00",
+      "id": "2610",
+      "pdf_url": "",
+      "title": "新路線の予約受付開始日時について",
+      "url": "https://www.shinkibus.co.jp/sys/frames/view/2610"
     }
   },
-  "updated_at": "2026-10-20T09:36:49.478583+09:00"
+  "updated_at": "2026-10-21T09:06:17.908330+09:00"
 }
