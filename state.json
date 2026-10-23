@@ -314,7 +314,16 @@
       "pdf_url": "",
       "title": "新路線の予約受付開始日時について",
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2610"
+    },
+    "2612": {
+      "category": "路線バス",
+      "date": "2026.10.22",
+      "first_seen": "2026-10-23T09:07:52.930843+09:00",
+      "id": "2612",
+      "pdf_url": "",
+      "title": "「神戸ワイン 新酒まつり」の開催に伴い、三宮からの直通バスを運行します！",
+      "url": "https://www.shinkibus.co.jp/sys/frames/view/2612"
     }
   },
-  "updated_at": "2026-10-22T09:09:32.638203+09:00"
+  "updated_at": "2026-10-23T09:07:54.765631+09:00"
 }
