@@ -323,7 +323,16 @@
       "pdf_url": "",
       "title": "「KOBE the CRAFT／神戸ワイン新酒まつり 2026」の開催に伴い、三宮からの直通バスを運行します！",
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2612"
+    },
+    "2615": {
+      "category": "路線バス",
+      "date": "2026.10.26",
+      "first_seen": "2026-10-27T09:45:56.436070+09:00",
+      "id": "2615",
+      "pdf_url": "",
+      "title": "10/28 14:00～ 神姫バスNAVIメンテナンスについて",
+      "url": "https://www.shinkibus.co.jp/sys/frames/view/2615"
     }
   },
-  "updated_at": "2026-10-26T08:30:35.567017+09:00"
+  "updated_at": "2026-10-27T09:45:58.693264+09:00"
 }
