@@ -332,7 +332,16 @@
       "pdf_url": "",
       "title": "10/28 14:00～ 神姫バスNAVIメンテナンスについて",
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2615"
+    },
+    "2616": {
+      "category": "路線バス",
+      "date": "2026.11.01",
+      "first_seen": "2026-11-02T10:00:25.133656+09:00",
+      "id": "2616",
+      "pdf_url": "https://www.shinkibus.co.jp/sys/whatsnew/download/2616",
+      "title": "カルマの祭（11/14・15）開催に合わせ、加古川駅北口～日岡山公園間で臨時直通バスを運行します！",
+      "url": "https://www.shinkibus.co.jp/sys/frames/view/2616"
     }
   },
-  "updated_at": "2026-11-01T09:23:56.822397+09:00"
+  "updated_at": "2026-11-02T10:00:27.060519+09:00"
 }
