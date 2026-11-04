@@ -341,7 +341,25 @@
       "pdf_url": "https://www.shinkibus.co.jp/sys/whatsnew/download/2616",
       "title": "カルマの祭（11/14・15）開催に合わせ、加古川駅北口～日岡山公園間で臨時直通バスを運行します！",
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2616"
+    },
+    "2620": {
+      "category": "路線バス",
+      "date": "2026.11.03",
+      "first_seen": "2026-11-04T10:37:42.049516+09:00",
+      "id": "2620",
+      "pdf_url": "",
+      "title": "【北条営業所（乗車券発売窓口）】１１月臨時休業日のお知らせ",
+      "url": "https://www.shinkibus.co.jp/sys/frames/view/2620"
+    },
+    "2621": {
+      "category": "路線バス",
+      "date": "2026.11.04",
+      "first_seen": "2026-11-04T10:37:42.049516+09:00",
+      "id": "2621",
+      "pdf_url": "https://www.shinkibus.co.jp/sys/whatsnew/download/2621",
+      "title": "【11月15日（日）】神戸マラソン開催に伴う運行内容の変更について",
+      "url": "https://www.shinkibus.co.jp/sys/frames/view/2621"
     }
   },
-  "updated_at": "2026-11-03T12:02:09.042062+09:00"
+  "updated_at": "2026-11-04T10:37:44.656005+09:00"
 }
