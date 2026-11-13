@@ -5,7 +5,15 @@
     <link>https://www.shinkibus.co.jp/sys/frames/lists01</link>
     <description>神姫バス公式サイトの新着情報を非公式にRSS化したものです。</description>
     <language>ja</language>
-    <lastBuildDate>Thu, 12 Nov 2026 11:29:06 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2026 11:05:37 +0900</lastBuildDate>
+    <item>
+      <title>🍁秋のイベント情報🍁</title>
+      <link>https://www.shinkibus.co.jp/sys/frames/view/2624</link>
+      <guid isPermaLink="false">shinkibus-2624</guid>
+      <pubDate>Fri, 13 Nov 2026 09:00:00 +0900</pubDate>
+      <category>路線バス</category>
+      <description>2026.11.13 / 路線バス</description>
+    </item>
     <item>
       <title>【西神中央駅前案内所（乗車券発売窓口）】１１月１２日（木）の営業時間変更のお知らせ</title>
       <link>https://www.shinkibus.co.jp/sys/frames/view/2628</link>
@@ -15,20 +23,20 @@
       <description>2026.11.12 / 路線バス</description>
     </item>
     <item>
+      <title>11月21日(土)～23日（月・祝）書写山もみじまつり開催に伴う運行内容変更について</title>
+      <link>https://www.shinkibus.co.jp/sys/frames/view/2627</link>
+      <guid isPermaLink="false">shinkibus-2627</guid>
+      <pubDate>Thu, 12 Nov 2026 09:00:00 +0900</pubDate>
+      <category>路線バス</category>
+      <description>2026.11.12 / 路線バス / PDF: &lt;a href="https://www.shinkibus.co.jp/sys/whatsnew/download/2627"&gt;https://www.shinkibus.co.jp/sys/whatsnew/download/2627&lt;/a&gt;</description>
+    </item>
+    <item>
       <title>【11月17日中止, 12月19日までの臨時バス情報を更新】🎤ジーライオンアリーナ神戸🏀へのアクセスのご案内</title>
       <link>https://www.shinkibus.co.jp/sys/frames/view/2226</link>
       <guid isPermaLink="false">shinkibus-2226</guid>
       <pubDate>Tue, 10 Nov 2026 09:00:00 +0900</pubDate>
       <category>路線バス</category>
       <description>2026.11.10 / 路線バス / PDF: &lt;a href="https://www.shinkibus.co.jp/sys/whatsnew/download/2226"&gt;https://www.shinkibus.co.jp/sys/whatsnew/download/2226&lt;/a&gt;</description>
-    </item>
-    <item>
-      <title>🍁秋のイベント情報🍁</title>
-      <link>https://www.shinkibus.co.jp/sys/frames/view/2624</link>
-      <guid isPermaLink="false">shinkibus-2624</guid>
-      <pubDate>Fri, 06 Nov 2026 09:00:00 +0900</pubDate>
-      <category>路線バス</category>
-      <description>2026.11.06 / 路線バス</description>
     </item>
     <item>
       <title>【11月15日（日）】神戸マラソン開催に伴う運行内容の変更について</title>
