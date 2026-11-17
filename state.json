@@ -395,7 +395,16 @@
       "pdf_url": "https://www.shinkibus.co.jp/sys/whatsnew/download/2630",
       "title": "「Himeji大手前通り・姫路城イルミネーション歩行者天国」開催に伴う迂回運行について",
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2630"
+    },
+    "2631": {
+      "category": "路線バス",
+      "date": "2026.11.17",
+      "first_seen": "2026-11-17T13:09:31.254040+09:00",
+      "id": "2631",
+      "pdf_url": "https://www.shinkibus.co.jp/sys/whatsnew/download/2631",
+      "title": "兵庫県立大学 工学部・環境人間学部 入学試験 姫路駅からの路線バスのご案内",
+      "url": "https://www.shinkibus.co.jp/sys/frames/view/2631"
     }
   },
-  "updated_at": "2026-11-16T10:21:05.618934+09:00"
+  "updated_at": "2026-11-17T13:09:32.885194+09:00"
 }
