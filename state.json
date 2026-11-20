@@ -404,7 +404,16 @@
       "pdf_url": "https://www.shinkibus.co.jp/sys/whatsnew/download/2631",
       "title": "兵庫県立大学 工学部・環境人間学部 入学試験 姫路駅からの路線バスのご案内",
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2631"
+    },
+    "2633": {
+      "category": "路線バス",
+      "date": "2026.11.20",
+      "first_seen": "2026-11-20T11:33:29.843617+09:00",
+      "id": "2633",
+      "pdf_url": "",
+      "title": "【三木営業所（乗車券発売窓口）】 １２月臨時休業のお知らせ",
+      "url": "https://www.shinkibus.co.jp/sys/frames/view/2633"
     }
   },
-  "updated_at": "2026-11-19T11:46:35.900613+09:00"
+  "updated_at": "2026-11-20T11:33:31.771566+09:00"
 }
