@@ -422,7 +422,16 @@
       "pdf_url": "",
       "title": "【ウイング神姫 赤穂営業所（乗車券発売窓口）】 １２月臨時休業のお知らせ",
       "url": "https://www.shinkibus.co.jp/sys/frames/view/2634"
+    },
+    "2635": {
+      "category": "路線バス",
+      "date": "2026.11.27",
+      "first_seen": "2026-11-27T12:45:48.914300+09:00",
+      "id": "2635",
+      "pdf_url": "https://www.shinkibus.co.jp/sys/whatsnew/download/2635",
+      "title": "12月19日・20日および12月24日・25日の特別ダイヤについて【ポートループ・シティループ】",
+      "url": "https://www.shinkibus.co.jp/sys/frames/view/2635"
     }
   },
-  "updated_at": "2026-11-26T12:44:44.906871+09:00"
+  "updated_at": "2026-11-27T12:45:50.816074+09:00"
 }
